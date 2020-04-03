@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_03_202507) do
+ActiveRecord::Schema.define(version: 2020_04_03_220322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,9 @@ ActiveRecord::Schema.define(version: 2020_04_03_202507) do
     t.datetime "starts_at"
     t.datetime "ends_at"
     t.boolean "premium", default: false
-    t.integer "state", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin_state_override", default: false
     t.index ["advertiser_name"], name: "index_offers_on_advertiser_name", unique: true
   end
 

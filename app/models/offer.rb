@@ -1,8 +1,5 @@
 class Offer < ApplicationRecord
-  before_create :check_state
-
-  enum state: %i[disabled enabled]
-
+  scope :enabled, -> { self.enabled_query }
   validates :advertiser_name, presence: true, uniqueness: true
   validates :url, presence: true
   validates :description, presence: true, length: { maximum: 500 }
@@ -14,7 +11,9 @@ class Offer < ApplicationRecord
 
   private
 
-  def check_state
-    self.starts_at <= DateTime.now ? self.state = :enabled : self.state = :disabled
+  def self.enabled_query
+    self.where("starts_at <= ?", DateTime.now)
+        .where("ends_at > ? OR ends_at IS NULL", DateTime.now)
+        .where(admin_state_override: false)
   end
 end

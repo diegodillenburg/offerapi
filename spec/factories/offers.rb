@@ -6,5 +6,6 @@ FactoryBot.define do
     starts_at { "2020-04-03 17:25:07" }
     ends_at { nil }
     premium { false }
+    admin_state_override { false }
   end
 end
