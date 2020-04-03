@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :offer do
-    advertiser_name { "MyString" }
+    sequence(:advertiser_name) { |n| "Advertiser #{n}" }
     url { "https://example.com" }
     description { "MyString" }
     starts_at { "2020-04-03 17:25:07" }
