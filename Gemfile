@@ -9,8 +9,11 @@ gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  gem 'dotenv-rails'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'dotenv-rails'
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 4.0.0'
+  gem 'shoulda-matchers'
 end
 
 group :development do
