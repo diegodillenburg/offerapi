@@ -1,5 +1,5 @@
 class OffersController < ApplicationController
-  expose :offers, -> { params[:admin] ? Offer.all : Offer.enabled }
+  expose :offers, -> { params[:admin] ? Offer.all.order(created_at: :desc) : Offer.enabled }
   expose :offer
 
   def index

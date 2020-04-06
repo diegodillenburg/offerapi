@@ -15,5 +15,7 @@ class Offer < ApplicationRecord
     self.where("starts_at <= ?", DateTime.now)
         .where("ends_at > ? OR ends_at IS NULL", DateTime.now)
         .where(admin_state_override: false)
+        .order(premium: :desc)
+        .order(starts_at: :asc)
   end
 end
