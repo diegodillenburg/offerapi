@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: offerapi_production
-  username: offerapi
-  password: <%= ENV['OFFERAPI_DATABASE_PASSWORD'] %>
+  username: ninjapi
+  password: ninjapi
